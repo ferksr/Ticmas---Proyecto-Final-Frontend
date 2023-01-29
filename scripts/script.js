@@ -103,6 +103,7 @@ function error(err) {
   document.getElementById("latitud").style.display = "list-item";
   document.getElementById("longitud").innerHTML = err.message;
   document.getElementById("longitud").style.display = "list-item";
+  document.getElementById("precision").style.display = "none";
 }
 
 
