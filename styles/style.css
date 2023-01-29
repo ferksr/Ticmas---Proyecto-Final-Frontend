@@ -14,3 +14,8 @@
   max-width: 500px;
   padding: 10px;
 }
+
+.oculto {
+  display: none;
+  padding: 0px;
+}

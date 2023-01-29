@@ -1,13 +1,10 @@
 
 /* Cambiar color de titulos*/
 
-console.log(document.getElementById("colorDeTitulos").value);
-console.log(document.getElementById("cambiarColor").innerHTML);
 document.getElementById("cambiarColor").addEventListener("click", fnCambiarColor);
 
 function fnCambiarColor() {
   let valorColorDeTiutlos = document.getElementById("colorDeTitulos").value
-  console.log(valorColorDeTiutlos);
   const collection = document.getElementsByTagName("h2");
   for (let i = 0; i < collection.length; i++) {
     collection[i].style.color = valorColorDeTiutlos;
@@ -33,7 +30,6 @@ if (localStorage.cantidadDeIngresos) {
 
 if (localStorage.ultimaVisita == undefined) {
     document.getElementById("ultimaVisita").innerHTML = "Primer visita";
-    console.log("Primer visita" + localStorage.ultimaVisita);
   } else {
     document.getElementById("ultimaVisita").innerHTML = "Ultima visita: " + localStorage.ultimaVisita;
   }
@@ -61,7 +57,6 @@ let phoneNumber;
 function getData() {
   let val = getRandomInt(8) + 1;
   let user = "https://dummyjson.com/users/" + val;
-  console.log(user);
   return fetch(user)
     .then(response => response.json())
     .then(data => {
@@ -75,3 +70,43 @@ getData().then(() => {
   document.getElementById("Nombre").innerHTML = "Nombre: "+ firstName + " " + lastName;
   document.getElementById("Email").innerHTML = "Email: "+ email;
 });
+
+
+/* Geolocalizacion */
+
+document.getElementById("geoLocalizacion").addEventListener("click", geolocalizar);
+
+function geolocalizar() {
+  navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  const crd = pos.coords;
+
+  document.getElementById("latitud").innerHTML = "Latitud : "+ crd.latitude;
+  document.getElementById("latitud").style.display = "block";
+  document.getElementById("longitud").innerHTML = "Longitud : "+ crd.longitude;
+  document.getElementById("longitud").style.display = "block";
+  document.getElementById("precision").innerHTML = "Precision : "+ crd.accuracy;
+  document.getElementById("precision").style.display = "block";
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+  document.getElementById("latitud").innerHTML = err.code;
+  document.getElementById("latitud").style.display = "block";
+  document.getElementById("longitud").innerHTML = err.message;
+  document.getElementById("longitud").style.display = "block";
+}
+
+
+
+
+
+

@@ -21,7 +21,7 @@
 
   <header class="container-fluid p-2 bg-primary text-white text-center">
     <h1>Curriculum Vitae<br>Wyatt Lawson</h1>
-    <img src="https://randomuser.me/api/portraits/men/62.jpg " alt="Foto de Wyatt Lawson" class="rounded border border-light mb-3">
+    <img src="images/image.jpg" alt="Foto de Wyatt Lawson" class="rounded border border-light mb-3">
   </header>
 
   <main class="contenido">
@@ -77,13 +77,24 @@
         <button class="btn btn-primary align-top" id="cambiarColor">Cambiar</button>
 
         <h3 class="mt-4">Visitas al sitio</h3>
-        <p id="contadorDeIngresos">Cargando...</p>
-        <p id="ultimaVisita">Cargando...</p>
+
+        <ul>
+          <li id="contadorDeIngresos">Cargando...</li>
+          <li id="ultimaVisita">Cargando...</li>
+        </ul>
 
         <h3 class="mt-4">Referencias (Json)</h3>
         <ul>
           <li id="Nombre">Cargando...</li>
           <li id="Email">Cargando...</li>
+        </ul>
+
+        <h3 class="mt-4">Geolocalización</h3>
+        <button class="btn btn-primary align-top" id="geoLocalizacion">Localizar</button>
+        <ul>
+          <li id="latitud" class="oculto"></li>
+          <li id="longitud" class="oculto"></li>
+          <li id="precision" class="oculto"></li>
         </ul>
     </section>
   </main>
