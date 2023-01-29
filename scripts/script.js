@@ -90,19 +90,19 @@ function success(pos) {
   const crd = pos.coords;
 
   document.getElementById("latitud").innerHTML = "Latitud : "+ crd.latitude;
-  document.getElementById("latitud").style.display = "block";
+  document.getElementById("latitud").style.display = "list-item";
   document.getElementById("longitud").innerHTML = "Longitud : "+ crd.longitude;
-  document.getElementById("longitud").style.display = "block";
-  document.getElementById("precision").innerHTML = "Precision : "+ crd.accuracy;
-  document.getElementById("precision").style.display = "block";
+  document.getElementById("longitud").style.display = "list-item";
+  document.getElementById("precision").innerHTML = "Precision : "+ crd.accuracy + " metros";
+  document.getElementById("precision").style.display = "list-item";
 }
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
   document.getElementById("latitud").innerHTML = err.code;
-  document.getElementById("latitud").style.display = "block";
+  document.getElementById("latitud").style.display = "list-item";
   document.getElementById("longitud").innerHTML = err.message;
-  document.getElementById("longitud").style.display = "block";
+  document.getElementById("longitud").style.display = "list-item";
 }
 
 
